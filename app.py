@@ -9,7 +9,7 @@ current_date = datetime.now()
 total_commits = 0
 
 # Loop through the number of days in the last week
-for i in range(1, 8):  # Last 7 days
+for i in range(8, 12):  # Last 7 days
     num_commits_today = randint(1, 4)
     total_commits += num_commits_today  # Count commits for the day
     for j in range(num_commits_today):  # Random number of commits per day
