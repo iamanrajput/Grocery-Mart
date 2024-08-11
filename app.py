@@ -13,10 +13,14 @@ for i in range(1, 8):  # Last 7 days
     num_commits_today = randint(1, 4)
     total_commits += num_commits_today  # Count commits for the day
     for j in range(num_commits_today):  # Random number of commits per day
-        commit_date = current_date - timedelta(days=i)
+        # Create a realistic commit time by adding minutes
+        commit_time_offset = timedelta(minutes=randint(0, 59))
+        commit_date = (current_date - timedelta(days=i)) + commit_time_offset
         date_str = commit_date.strftime('%Y-%m-%d %H:%M:%S')
+        
         with open('file.txt', 'a') as file:
             file.write(f'Commit on {date_str}\n')
+
         os.system(f'git add .')
         os.system(f'git commit --date="{date_str}" -m "commit on {date_str}"')
 
